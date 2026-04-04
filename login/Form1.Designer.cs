@@ -32,6 +32,7 @@
             textBox2 = new TextBox();
             button1 = new Button();
             button2 = new Button();
+            button3 = new Button();
             SuspendLayout();
             // 
             // textBox1
@@ -77,6 +78,16 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
+            // button3
+            // 
+            button3.Location = new Point(601, 132);
+            button3.Name = "button3";
+            button3.Size = new Size(75, 23);
+            button3.TabIndex = 4;
+            button3.Text = "button3";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
             // Form1
             // 
             AccessibleRole = AccessibleRole.IpAddress;
@@ -84,6 +95,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Pink;
             ClientSize = new Size(704, 450);
+            Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(textBox2);
@@ -101,5 +113,6 @@
         private TextBox textBox2;
         private Button button1;
         private Button button2;
+        private Button button3;
     }
 }

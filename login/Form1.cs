@@ -27,7 +27,7 @@ namespace login
             DotNetEnv.Env.Load();
 
             string? correctName = Environment.GetEnvironmentVariable("DB_USERNAME");
-            string? correctPassword= Environment.GetEnvironmentVariable("DB_PASSWORD");
+            string? correctPassword = Environment.GetEnvironmentVariable("DB_PASSWORD");
 
 
             string name = textBox1.Text.Trim();
@@ -55,6 +55,15 @@ namespace login
         private void button2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Form2 dashboard = new Form2();
+
+            dashboard.Show();
+
+            this.Hide();
         }
     }
 }
