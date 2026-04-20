@@ -24,14 +24,27 @@ namespace login
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            label2.Text = "Welcome, Sohaib! This is your Dashboard...";
+            label2.Text = "Wellcome To Laptop Status Dashboard...";
             this.Text = "User Dashboard";
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            var result = MessageBox.Show(
+                "Are you sure you want to logout?",
+                "Confirm",
+                MessageBoxButtons.YesNo
+            );
+
+            if (result == DialogResult.Yes)
+            {
+                MessageBox.Show("Logged out successfully.");
+                this.Close();
+            } else
+            {
+                MessageBox.Show("Logout cancelled.");
+            }
         }
 
         protected override void OnFormClosed(FormClosedEventArgs e)
@@ -45,15 +58,17 @@ namespace login
 
         }
 
-        private void comboBoxCity_SelectedIndexChanged(object sender, EventArgs e) {
+        private void comboBoxCity_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
 
 
             comboBoxUniversity.Items.Clear();
-            //comboBoxDepartment.Items.Clear();
+            comboBoxDepartment.Items.Clear();
             switch (comboBoxCity.Text)
             {
-                case "DIKhan": {
+                case "DIKhan":
+                    {
                         comboBoxUniversity.Items.Add("Gomal University");
                         comboBoxUniversity.Items.Add("Qurtuba University");
                         break;
@@ -74,7 +89,7 @@ namespace login
                     }
                 case "Tank":
                     {
-                        comboBoxUniversity.Items.Add("Gomal University (Tank Campus)");
+                        comboBoxUniversity.Items.Add("GU (Tank Campus)");
                         break;
                     }
                 case "Peshawar":
@@ -93,5 +108,60 @@ namespace login
                     }
             }
         }
+
+        private void comboBoxUniversity_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBoxDepartment.Items.Clear();
+
+            if (comboBoxUniversity.Text == "Gomal University" || comboBoxUniversity.Text == "Qurtuba University")
+            {
+                comboBoxDepartment.Items.Add("Computer Science");
+                comboBoxDepartment.Items.Add("Zoology");
+                comboBoxDepartment.Items.Add("Physics");
+                comboBoxDepartment.Items.Add("English");
+            }
+            else if (comboBoxUniversity.Text == "GU (Tank Campus)")
+            {
+                comboBoxDepartment.Items.Add("Computer Science");
+                comboBoxDepartment.Items.Add("Zoology");
+            }
+            else if (comboBoxUniversity.Text == "University of the Punjab")
+            {
+                comboBoxDepartment.Items.Add("Software Engineering");
+                comboBoxDepartment.Items.Add("Data Science");
+                comboBoxDepartment.Items.Add("Law");
+            }
+
+        }
+
+        private void comboBoxDepartment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBoxDegree.Items.Clear();
+
+            if (comboBoxDepartment.Text == "Computer Science")
+            {
+                comboBoxDegree.Items.Add("BS (4-Year)");
+                comboBoxDegree.Items.Add("MS / Master");
+                comboBoxDegree.Items.Add("PhD");
+            }
+            else if (comboBoxDepartment.Text == "Software Engineering" || comboBoxDepartment.Text == "Data Science")
+            {
+                comboBoxDegree.Items.Add("BS (4-Year)");
+                comboBoxDegree.Items.Add("MS / Master");
+            }
+            else if (comboBoxDepartment.Text == "Zoology" || comboBoxDepartment.Text == "Physics")
+            {
+                comboBoxDegree.Items.Add("BS");
+                comboBoxDegree.Items.Add("MSc");
+                comboBoxDegree.Items.Add("MPhil");
+                comboBoxDegree.Items.Add("PhD");
+            }
+            else
+            {
+                comboBoxDegree.Items.Add("BS");
+                comboBoxDegree.Items.Add("Master");
+            }
+        }
+
     }
 }

@@ -30,11 +30,15 @@
         {
             label1 = new Label();
             label2 = new Label();
-            button1 = new Button();
+            logout = new Button();
             comboBoxCity = new ComboBox();
             labelCity = new Label();
             comboBoxUniversity = new ComboBox();
             labelUniversity = new Label();
+            comboBoxDepartment = new ComboBox();
+            labelDepartment = new Label();
+            comboBoxDegree = new ComboBox();
+            labelDegree = new Label();
             SuspendLayout();
             // 
             // label1
@@ -57,20 +61,20 @@
             label2.Text = "label2";
             label2.Click += label2_Click;
             // 
-            // button1
+            // logout
             // 
-            button1.BackColor = Color.Bisque;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Segoe UI", 11F);
-            button1.ForeColor = Color.Red;
-            button1.Location = new Point(678, 397);
-            button1.Name = "button1";
-            button1.Size = new Size(97, 31);
-            button1.TabIndex = 0;
-            button1.Text = "Logout";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            logout.BackColor = Color.Bisque;
+            logout.FlatAppearance.BorderSize = 0;
+            logout.FlatStyle = FlatStyle.Flat;
+            logout.Font = new Font("Segoe UI", 11F);
+            logout.ForeColor = Color.Red;
+            logout.Location = new Point(678, 397);
+            logout.Name = "logout";
+            logout.Size = new Size(97, 31);
+            logout.TabIndex = 0;
+            logout.Text = "Logout";
+            logout.UseVisualStyleBackColor = false;
+            logout.Click += button1_Click;
             // 
             // comboBoxCity
             // 
@@ -97,6 +101,7 @@
             comboBoxUniversity.Name = "comboBoxUniversity";
             comboBoxUniversity.Size = new Size(121, 23);
             comboBoxUniversity.TabIndex = 5;
+            comboBoxUniversity.SelectedIndexChanged += comboBoxUniversity_SelectedIndexChanged;
             // 
             // labelUniversity
             // 
@@ -107,18 +112,57 @@
             labelUniversity.TabIndex = 6;
             labelUniversity.Text = "University";
             // 
+            // comboBoxDepartment
+            // 
+            comboBoxDepartment.FormattingEnabled = true;
+            comboBoxDepartment.Location = new Point(530, 78);
+            comboBoxDepartment.Name = "comboBoxDepartment";
+            comboBoxDepartment.Size = new Size(121, 23);
+            comboBoxDepartment.TabIndex = 7;
+            comboBoxDepartment.SelectedIndexChanged += comboBoxDepartment_SelectedIndexChanged;
+            // 
+            // labelDepartment
+            // 
+            labelDepartment.AutoSize = true;
+            labelDepartment.Location = new Point(530, 60);
+            labelDepartment.Name = "labelDepartment";
+            labelDepartment.Size = new Size(70, 15);
+            labelDepartment.TabIndex = 8;
+            labelDepartment.Text = "Department";
+            // 
+            // comboBoxDegree
+            // 
+            comboBoxDegree.FormattingEnabled = true;
+            comboBoxDegree.Location = new Point(106, 155);
+            comboBoxDegree.Name = "comboBoxDegree";
+            comboBoxDegree.Size = new Size(121, 23);
+            comboBoxDegree.TabIndex = 9;
+            // 
+            // labelDegree
+            // 
+            labelDegree.AutoSize = true;
+            labelDegree.Location = new Point(106, 137);
+            labelDegree.Name = "labelDegree";
+            labelDegree.Size = new Size(74, 15);
+            labelDegree.TabIndex = 10;
+            labelDegree.Text = "Degree Level";
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(labelDegree);
+            Controls.Add(comboBoxDegree);
+            Controls.Add(labelDepartment);
+            Controls.Add(comboBoxDepartment);
             Controls.Add(labelUniversity);
             Controls.Add(comboBoxUniversity);
             Controls.Add(labelCity);
             Controls.Add(comboBoxCity);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(button1);
+            Controls.Add(logout);
             Name = "Form2";
             Text = "Form2";
             Load += Form2_Load;
@@ -129,10 +173,14 @@
         #endregion
         private Label label1;
         private Label label2;
-        private Button button1;
+        private Button logout;
         private ComboBox comboBoxCity;
         private Label labelCity;
         private ComboBox comboBoxUniversity;
         private Label labelUniversity;
+        private ComboBox comboBoxDepartment;
+        private Label labelDepartment;
+        private ComboBox comboBoxDegree;
+        private Label labelDegree;
     }
 }
